@@ -1,0 +1,52 @@
+<CameraClick>:
+    orientation: 'vertical'
+    Camera:
+        id: camera
+        #resolution: (640, 480)
+        size_hint: (.8, .8)
+        pos_hint: {'center_x':0.5, 'y':0.18}
+        play: True
+    Button:
+        height: '48dp'
+        on_release: root.capture()
+        background_normal: 'icons/camera.png'
+        background_down: 'icons/camera_down.png'
+        size_hint: (.2, .3)
+        pos_hint: {'center_x':0.5, 'y':-0.06}
+
+
+<MenuScreen>:
+
+    GridLayout:
+        padding: 50
+        spacing: 50
+        cols: 1
+        rows: 3
+        Button:
+            font_size: dp(28)
+            text: 'Начать'
+            on_press: root.manager.current = 'camera'
+        Button:
+            font_size: dp(28)
+            text: 'Выбрать маршрут'
+        Button:
+            font_size: dp(28)
+            text: 'Выйти'
+
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'My settings button'
+        Button:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'menu'
+        Button:
+            text: "Выйти"
+            on_press: root.manager.current = 'quit'
+
+<QuitScreen>:
+    BoxLayout:
+        Button:
+            text: "Привет"
+            background_normal: 'images/20220707_215421.png'
+            on_press: root.manager.current = 'camera'
